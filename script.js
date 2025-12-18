@@ -1,10 +1,16 @@
 const marquee = document.querySelector('.marquee-inner');
-[...marquee.children].forEach(el => marquee.appendChild(el.cloneNode(true)));
+const items = [...marquee.children];
 
+// Duplicate items for seamless looping
+items.forEach(el => marquee.appendChild(el.cloneNode(true)));
 
+let width = 0;
+items.forEach(item => width += item.offsetWidth + parseInt(getComputedStyle(item).marginRight));
+
+// Animate marquee infinitely
 gsap.to(marquee, {
-x: '-50%',
-duration: 20,
-ease: 'linear',
-repeat: -1
+  x: `-${width}px`,
+  duration: 20,     // adjust speed here
+  ease: 'linear',
+  repeat: -1
 });
