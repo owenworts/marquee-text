@@ -1,0 +1,31 @@
+.marquee-block {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee-inner {
+  display: inline-flex;
+  gap: 3rem;
+  will-change: transform;
+}
+
+.marquee-item {
+  color: #000;
+  font-size: 5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Fade effect */
+.marquee-block::before,
+.marquee-block::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 10rem;
+  height: 100%;
+  pointer-events: none;
+}
+
